@@ -23,7 +23,7 @@
   },
   "escola": {
     "CO_ESCOLA": "Código da Escola4",
-    "CO_MUNICIPIO_ESC\n": "Código do município da escola ",
+    "CO_MUNICIPIO_ESC": "Código do município da escola ",
     "NO_MUNICIPIO_ESC": "Nome do município da escola",
     "CO_UF_ESC": "Código da Unidade da Federação da escola",
     "SG_UF_ESC": "Sigla da Unidade da Federação da escola",
