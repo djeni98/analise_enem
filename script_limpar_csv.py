@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 
 ##### Arquivos necessários (entrada)
-# dicionario.json
-# categorias.json
-# enem.csv
+# dados/dicionario.json
+# dados/categorias.json
+# dados/MICRODADOS_ENEM_2019.csv
 
 ##### Arquivo de saída
 # final.pkl.xz
@@ -22,10 +22,10 @@ def le_csv_partes(filename, cria_colunas=False, offset = 0, limit = None):
     import re
 
     #### Pega informacoes sobre o dicionario e as categorias
-    with open('dicionario.json', 'r') as f:
+    with open('dados/dicionario.json', 'r') as f:
         d = json.load(f)
 
-    with open('categorias.json', 'r') as f:
+    with open('dados/categorias.json', 'r') as f:
         c = json.load(f)
         categoria = {
             **c['participante'], **c['escola'], **c['especializado'], **c['especifico'],
@@ -132,18 +132,18 @@ if __name__ == '__main__':
         print(f'Rodando em Paralelo com {t} threads')
         with Pool(t) as p:
             x = 5_100_000 // t
-            args = [ ('enem.csv', True, i, j) for i, j in zip_longest(range(0, x*t, x), range(x, x*t, x)) ]
+            args = [ ('dados/MICRODADOS_ENEM_2019.csv', True, i, j) for i, j in zip_longest(range(0, x*t, x), range(x, x*t, x)) ]
             pprint(args)
             arr = p.map(wrapper, args)
             df = concat(arr)
     else:
         print('Rodando Sequencial')
-        df = le_csv_partes('enem.csv', True, 0, None)
+        df = le_csv_partes('dados/MICRODADOS_ENEM_2019.csv', True, 0, None)
 
     print(Timedelta(datetime.now() - inicio).isoformat())
     print(len(df))
 
     inicio = datetime.now()
     print('Criando arquivo pickle')
-    df.to_pickle('final.pkl.xz')
+    df.to_pickle('dados/final.pkl.xz')
     print(Timedelta(datetime.now() - inicio).isoformat())
