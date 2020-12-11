@@ -33,3 +33,19 @@ Assim, a cada X linhas, as alterações são aplicadas e ao final da execução 
 
 Como arquivos de texto não podem manter a otimização de alguns tipos, optamos por usar o formato pickle do python.
 Desta maneira, o objeto otimizado pode ser armazenado e lido posteriormente sem aumento no consumo da memória.
+
+### Fazer análises
+
+Separamos a análise em três partes para facilitar a divisão de trabalho. Ficando uma parte para cada integrante:
+
+- [Parte 1](analise_pt1.ipynb) - Djenifer
+- [Parte 2](analise_pt2.ipynb) - Carlos
+- [Parte 3](analise_pt3.ipynb) - Jaqueline (que devido a sua saída passou para o Carlos)
+
+Alguns aspectos que nos chamaram a atenção foram:
+- Basicamente 80% das pessoas que realizaram o ENEM não moram em capitais (pt2)
+- Mais de 50% de quem faz a prova tem entre 16 e 18 anos (pt2)
+- Aproximadamente 60% dos participantes é do sexo feminino (pt2)
+- Mais de 50% dos participantes tem renda mensal familiar de até R$ 1497,00 (pt1)
+- 80% das pais dos candidatos possuem no máximo o ensino médio completo (pt3)
+- Quase todos os participantes tem um celular, mas 40% deles não tem um computador e 20% não tem acesso a internet (pt3)
