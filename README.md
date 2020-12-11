@@ -34,7 +34,7 @@ Assim, a cada X linhas, as alterações são aplicadas e ao final da execução 
 Como arquivos de texto não podem manter a otimização de alguns tipos, optamos por usar o formato pickle do python.
 Desta maneira, o objeto otimizado pode ser armazenado e lido posteriormente sem aumento no consumo da memória.
 
-### Fazer análises
+### Fazer análises e verificar correlações
 
 Separamos a análise em três partes para facilitar a divisão de trabalho. Ficando uma parte para cada integrante:
 
@@ -49,3 +49,17 @@ Alguns aspectos que nos chamaram a atenção foram:
 - Mais de 50% dos participantes tem renda mensal familiar de até R$ 1497,00 (pt1)
 - 80% das pais dos candidatos possuem no máximo o ensino médio completo (pt3)
 - Quase todos os participantes tem um celular, mas 40% deles não tem um computador e 20% não tem acesso a internet (pt3)
+
+As correlações estão no mesmo arquivo que as análises, onde verificamos as tendências as variáveis tem nas notas.
+
+### Machine Learning
+
+Pra ter certeza das correlações, um heatmap foi feito e a partir dele foi possível verificar que:
+- As notas possuem alta correlação entre si
+- As demais colunas tem baixa correlação, sendo a renda a maior delas com 0.4 de correlação
+
+Para tentar fazer a predição, testamos 4 modelos de predição: DummyRegressor, LinearRegression, DecisionTreeRegressor e SVM.
+O DummyRegressor teve um péssimo desempenho dado que sua implementação usa estratégias simples.
+Já o LinearRegression e DecisionTreeRegressor tiveram resultados parecidos, no entanto o DecisionTreeRegressor aparenta ser mais lento. E por fim, tentamos o SVM, porém seu tempo de execução é altíssimo para o nosso dataset. Não conseguimos estimar o tempo de execução do SVM pois ele passou de 30 minutos e desistimos de terminar a execução desse modelo.
+
+
